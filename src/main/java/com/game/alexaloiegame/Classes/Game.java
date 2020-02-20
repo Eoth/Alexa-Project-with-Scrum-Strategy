@@ -1,7 +1,18 @@
 package com.game.alexaloiegame.Classes;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+import java.net.HttpURLConnection;
+import java.net.URL;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import org.json.JSONObject;
+
+import static java.lang.System.*;
 
 public class Game {
 	
@@ -11,8 +22,40 @@ public class Game {
 		this.nbPlayers = nbPlayers;
 	}
 
-	public void start() {
+	public void start()  {
 		/* Start the game. */
+		String readLine = null;
+		URL url = null;
+		try {
+			url = new URL("http://35.205.140.234:8080/game_party/all");
+			HttpURLConnection con = null;
+			con = (HttpURLConnection) url.openConnection();
+
+			con.setRequestMethod("GET");
+			con.connect();
+			int responseCode = con.getResponseCode();
+			if (responseCode == HttpURLConnection.HTTP_OK) {
+				BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+				StringBuffer response = new StringBuffer();
+				while ((readLine = in.readLine()) != null) {
+					readLine = readLine.replace("[", "").replace("]", "");
+					response.append(readLine);
+				}
+				in.close();
+				// print result
+				out.println("JSON String Result " + response.toString());
+				if ((!response.toString().equals(""))){
+					JSONObject json = new JSONObject(response.toString());
+					out.println(" Bienvenue  ! Une partie est en cours ! Voulez vous continuez ?");}
+				else out.println("bd renvoie null");
+				//GetAndPost.POSTRequest(response.toString());
+			} else {
+				out.println(" Bienvenue  ! Un problème est survenu lors de vérification d'une partie en cours?");
+			}
+		} catch (IOException e) {
+			out.println(" Bienvenue  ! Un problème est survenu lors de vérification d'une partie en cours?");
+		}
+		
 		List<Player> players = new ArrayList<Player>();
 		for(int i=1 ; i<=this.nbPlayers ; i++)
 			players.add(new Player("Joueur " + i));
@@ -26,7 +69,7 @@ public class Game {
 		int turn = 1;
 		
 		while(!finished) {
-			System.out.println("Turn " + turn + " :");
+			out.println("Turn " + turn + " :");
 			for (Player p : players) {
 				int posPlayer = p.getPosition();
 				int maxCases = board.getMaxCases();
@@ -37,9 +80,9 @@ public class Game {
 				else
 					p.move(result1 + result2);
 				Case currentCase = board.getCases().get(p.getPosition());
-				System.out.print("Lancer des deux dés : " + (result1 + result2) + " : ");
+				out.print("Lancer des deux dés : " + (result1 + result2) + " : ");
 				currentCase.effect(p); // activate the effect of this case
-				System.out.println(p);
+				out.println(p);
 				if(p.getPosition() == maxCases) { // current player reacher the finish ?
 					finished = true;
 					break; // exit the "for" structure
@@ -47,14 +90,10 @@ public class Game {
 				
 				
 			}
-			System.out.println("\n\n");
+			out.println("\n\n");
 			turn++;
 			
-		}
-		
-		
-		
-		
+		}	
 
 	}
 

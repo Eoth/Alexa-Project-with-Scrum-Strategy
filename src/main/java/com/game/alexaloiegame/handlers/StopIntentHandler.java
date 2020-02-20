@@ -16,10 +16,11 @@ public class StopIntentHandler implements RequestHandler {
 
     @Override
     public Optional<Response> handle(HandlerInput input) {
-        String speechText = "Vous quitter le skill de Tibé, Shuang, Anas & olivier, au revoir !";
+        String speechText = "Vous quitter le jeue de l'oie dévéloppé par  de Tibé, Romaric, Shuang, Anas et olivier, Ah bientôt !";
         return input.getResponseBuilder()
                 .withSpeech(speechText)
                 .withSimpleCard("Leave game", speechText)
+                .withShouldEndSession(true)
                 .build();
     }
 }

@@ -19,6 +19,7 @@ import com.amazon.ask.model.Response;
 import com.amazon.ask.model.Slot;
 
 public class WhatsNumberOfPlayershandler implements RequestHandler{
+	int nb;
 
     public boolean canHandle(HandlerInput input) {
 		// TODO Auto-generated method stub
@@ -26,13 +27,7 @@ public class WhatsNumberOfPlayershandler implements RequestHandler{
 	}
 	
     public Optional<Response> handle(HandlerInput handlerInput) {
-		
-//    	Intent intent = intentRequest.getIntent();
-//	    Slot nb_playersSlot = intent.getSlots().get(PLAYERS_SLOT);
-//	    String nb_players = nb_playersSlot
-//                .getResolutions()
-//                .getResolutionsPerAuthority().get(0).getValues()
-//                .get(0).getValue().getId();
+
     	Request request = handlerInput.getRequestEnvelope().getRequest();
     	IntentRequest intentRequest = (IntentRequest) request;
         Intent intent = intentRequest.getIntent();
@@ -50,9 +45,10 @@ public class WhatsNumberOfPlayershandler implements RequestHandler{
 			
 			String numberOfOPlayer = playersSlot.getValue();
 			handlerInput.getAttributesManager().setSessionAttributes(Collections.singletonMap("NB_PLAYERS", numberOfOPlayer));
-		    speechText = String.format("OK ! Parfait. Vous êtes %s joueurs. Que le meilleur gagne "
-                 + "Maintenant, demander lancer de dé ?", numberOfOPlayer);
-				 //" Vous êtes "+ nb_players +" joueurs, Que le meilleur gagne !";
+		    speechText = String.format("OK ! Parfait. Vous êtes %s joueurs. "
+                 + "Maintenant, dite : joueur pour configurer un joueur !" +
+					"après ma confirmation d'enrégistrement du dernier joueur : "+
+					"Dite : lancé dé ou dé", numberOfOPlayer);
 		 
         } else {
             // Render an error since user input is out of list of color defined in interaction model.
