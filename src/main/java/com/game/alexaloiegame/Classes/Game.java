@@ -1,18 +1,9 @@
 package com.game.alexaloiegame.Classes;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-
-import java.net.HttpURLConnection;
-import java.net.URL;
-
 import java.util.ArrayList;
 import java.util.List;
 
-import org.json.JSONObject;
-
-import static java.lang.System.*;
+import static java.lang.System.out;
 
 public class Game {
 	
@@ -24,48 +15,8 @@ public class Game {
 
 	public void start()  {
 		/* Start the game. */
-		String readLine = null;
-		URL url = null;
-		try {
-			url = new URL("http://35.205.140.234:8080/player/all");
-			HttpURLConnection con = null;
-			con = (HttpURLConnection) url.openConnection();
-
-			con.setRequestMethod("GET");
-			con.connect();
-			int responseCode = con.getResponseCode();
-			if (responseCode == HttpURLConnection.HTTP_OK) {
-				BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
-				StringBuffer response = new StringBuffer();
-				while ((readLine = in.readLine()) != null) {
-					readLine = readLine.replace("[", "").replace("]", "");
-					response.append(readLine);
-				}
-				in.close();
-				// print result
-				out.println("JSON String Result " + response.toString());
-				if ((!response.toString().equals(""))){
-					JSONObject json = new JSONObject(response.toString());
-					json.keySet().forEach(keyStr ->
-					{
-						Object keyvalue = json.get((String) keyStr);
-						System.out.println("key: "+ keyStr + " value: " + keyvalue);
-
-						//for nested objects iteration if required
-						//if (keyvalue instanceof JSONObject)
-						//    printJsonObject((JSONObject)keyvalue);
-					});
-					out.println(" Bienvenue  ! Une partie est en cours ! Voulez vous continuez ?");}
-				else out.println("bd renvoie null");
-				//GetAndPost.POSTRequest(response.toString());
-			} else {
-				out.println(" Bienvenue  ! Un problème est survenu lors de vérification d'une partie en cours?");
-			}
-		} catch (IOException e) {
-			out.println(" Bienvenue  ! Un problème est survenu lors de vérification d'une partie en cours?");
-		}
 		
-		List<Player> players = new ArrayList<Player>();
+		List<Player> players = new ArrayList<>();
 		for(int i=1 ; i<=this.nbPlayers ; i++)
 			players.add(new Player("Joueur " + i));
 		Board board = new Board(50);
