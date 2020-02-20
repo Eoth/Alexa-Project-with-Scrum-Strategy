@@ -56,6 +56,16 @@ public class WhatsNameOfPlayerhandler implements RequestHandler{
 				int responseCode = con.getResponseCode();
 				if (responseCode == HttpURLConnection.HTTP_CREATED) {
 					speechText = String.format("OK ! Parfait. %s a été enrégistré", nameOfOPlayer);
+					con.disconnect();
+					url = new URL("http://35.205.140.234:8080/game_party/add?party_name=partie&player_name="+nameOfOPlayer);
+					con = null;
+					con = (HttpURLConnection) url.openConnection();
+					responseCode = con.getResponseCode();
+					if (responseCode == HttpURLConnection.HTTP_CREATED || responseCode == HttpURLConnection.HTTP_ACCEPTED)
+					{
+						speechText = speechText + "Et à été ajouter la partie";
+					}
+
 					//GetAndPost.POSTRequest(response.toString());
 				} else {
 					speechText = String.format("Redites votre nom ! %s n'a pas pu être enrégistré.", nameOfOPlayer);

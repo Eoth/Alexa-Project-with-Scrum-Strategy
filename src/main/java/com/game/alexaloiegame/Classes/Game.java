@@ -27,7 +27,7 @@ public class Game {
 		String readLine = null;
 		URL url = null;
 		try {
-			url = new URL("http://35.205.140.234:8080/game_party/all");
+			url = new URL("http://35.205.140.234:8080/player/all");
 			HttpURLConnection con = null;
 			con = (HttpURLConnection) url.openConnection();
 
@@ -46,6 +46,15 @@ public class Game {
 				out.println("JSON String Result " + response.toString());
 				if ((!response.toString().equals(""))){
 					JSONObject json = new JSONObject(response.toString());
+					json.keySet().forEach(keyStr ->
+					{
+						Object keyvalue = json.get((String) keyStr);
+						System.out.println("key: "+ keyStr + " value: " + keyvalue);
+
+						//for nested objects iteration if required
+						//if (keyvalue instanceof JSONObject)
+						//    printJsonObject((JSONObject)keyvalue);
+					});
 					out.println(" Bienvenue  ! Une partie est en cours ! Voulez vous continuez ?");}
 				else out.println("bd renvoie null");
 				//GetAndPost.POSTRequest(response.toString());
