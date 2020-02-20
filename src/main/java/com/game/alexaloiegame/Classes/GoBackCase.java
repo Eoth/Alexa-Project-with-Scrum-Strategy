@@ -9,6 +9,20 @@ public class GoBackCase extends Case {
 		this.numberOfCases = numberOfCases;
 	}
 
+	
+	
+	public int getNumberOfCases() {
+		return numberOfCases;
+	}
+
+
+
+	public void setNumberOfCases(int numberOfCases) {
+		this.numberOfCases = numberOfCases;
+	}
+
+
+
 	@Override
 	public void effect(Player p) {
 		/* If the player stops on this case , the player will go back of "numberOfCases". */

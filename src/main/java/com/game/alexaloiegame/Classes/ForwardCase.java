@@ -8,6 +8,20 @@ public class ForwardCase extends Case {
 		super(id);
 		this.numberOfCases = numberOfCases;
 	}
+	
+	
+
+	public int getNumberOfCases() {
+		return numberOfCases;
+	}
+
+
+
+	public void setNumberOfCases(int numberOfCases) {
+		this.numberOfCases = numberOfCases;
+	}
+
+
 
 	@Override
 	public void effect(Player p) {
