@@ -15,6 +15,7 @@ goose game with alexa participation
 * Avec ce compte,on peut se connectez egalement sur https://developer.amazon.com pour voir le skill développer pour alexa 
 ##### 2 - Installation de Amazon Echo
 * Cliquer sur l'icône menu en haut en à gauche
+* brancher amazon, appuyez sur le bouton (__.__) pour être en mode configuration
 * selectionner ajouter un appareil
 * suivre l'instruction jusqu'àinstallation
 ##### 3 - Lancer la skill
