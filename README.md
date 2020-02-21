@@ -7,6 +7,17 @@ goose game with alexa participation
 ![aws](https://img.shields.io/static/v1?label=Aws&message=RDS_Lambda&color=orange)
 ![google](https://img.shields.io/static/v1?label=google&message=engine&color=gray)
 
+## Le jeue de l'oie
+##### Pincipe du jeue
+* Deux (ou plus) joueurs lancent chacun à leur tour deux dé, et se déplacent sur le plateau en fonction du résultat du dé
+* il existe des cases spéciale qui ont avancer le joueur de x cases ou le fait reculer de x case
+* le premier joueur qui arrive sur la case final, remporte la partie
+##### Notre jeue
+* le jeue contient 50 cases
+* les cases[5] [15] [25] [35] font avancer de 4 cases
+* les cases [7] [17] [27] [37] [47] font reculer de 4 cases
+* la case [48] fait revenir le joueur à la case de départ
+
 ## Guide d'insatallation Alexa
 ##### 1 - Télécharger l'application alexa 
 * Se connecter avec le compte 
