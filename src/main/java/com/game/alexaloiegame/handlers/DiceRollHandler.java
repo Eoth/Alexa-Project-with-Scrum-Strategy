@@ -99,8 +99,11 @@ public class DiceRollHandler implements RequestHandler{
 								speechText +=  " Vous retournez à la case départ ! CHEEEEEH !";
 	
 							}
-							speechText += playerName +" ! placez votre pion à "+p.getPosition();
 
+							if(p.getPosition() == 50){
+								speechText += playerName +" ! Ouha, Ouha ! vous avez gagné ! vous êtes sur la case 50";
+							}
+							else speechText += playerName +" ! placez votre pion à "+p.getPosition();
 
 							con.disconnect();
 							url = new URL("http://35.205.140.234:8080/player/update?name="+playerName+"&position="+p.getPosition());
