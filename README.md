@@ -7,16 +7,17 @@ goose game with alexa participation
 ![aws](https://img.shields.io/static/v1?label=Aws&message=RDS_Lambda&color=orange)
 ![google](https://img.shields.io/static/v1?label=google&message=engine&color=gray)
 
-## Le jeu de l'oie
-##### Pincipe du jeu
-* Deux joueurs ou plus lancent chacun à leur tour deux dés, et se déplacent sur le plateau en fonction du résultat du dé
-* il existe des cases spéciales qui font avancer le joueur de x cases ou le fait reculer de x cases
-* le premier joueur qui arrive sur la case finale, remporte la partie.
 ## Les branches du git
 
 ##### master : le readme pour le guide 
 ##### dev-goose-game : le code de notre application du jeu de l'oie
 ##### dev-api : le code de l'api de notre jeu
+
+## Le jeu de l'oie
+##### Pincipe du jeu
+* Deux joueurs ou plus lancent chacun à leur tour deux dés, et se déplacent sur le plateau en fonction du résultat du dé
+* il existe des cases spéciales qui font avancer le joueur de x cases ou le fait reculer de x cases
+* le premier joueur qui arrive sur la case finale, remporte la partie.
 
 ##### Notre jeu
 * le jeu contient 50 cases
