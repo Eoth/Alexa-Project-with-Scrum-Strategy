@@ -12,6 +12,12 @@ goose game with alexa participation
 * Deux joueurs ou plus lancent chacun à leur tour deux dés, et se déplacent sur le plateau en fonction du résultat du dé
 * il existe des cases spéciales qui font avancer le joueur de x cases ou le fait reculer de x cases
 * le premier joueur qui arrive sur la case finale, remporte la partie.
+## Les branches du git
+
+##### master : le readme pour le guide 
+##### dev-goose-game : le code de notre application du jeu de l'oie
+##### dev-api : le code de l'api de notre jeu
+
 ##### Notre jeu
 * le jeu contient 50 cases
 * les cases[5] [15] [25] [35] font avancer de 4 cases
