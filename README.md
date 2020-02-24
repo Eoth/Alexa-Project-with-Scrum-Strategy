@@ -20,9 +20,9 @@ goose game with alexa participation
 
 ## Guide d'insatallation Alexa
 ##### 1 - Télécharger l'application alexa 
-* Se connecter avec le compte 
+* Se connecter avec le compte amazon developer
   __login__ : tibepakyendou.nakote@etu.uphf.fr
-  __password__ : (Contactez Eoth par e-mail afin d'avoir le mot de passe)
+  __password__ : ********
 * Avec ce compte,on peut se connecter également sur https://developer.amazon.com pour voir le skill développé pour Alexa 
 ##### 2 - Installation de Amazon Echo
 * Cliquer sur l'icône menu en haut en à gauche
@@ -31,7 +31,16 @@ goose game with alexa participation
 * suivre l'instruction jusqu'à l'installation
 ##### 3 - Lancer la skill
 * Brancher Amazon Echo 
-* Pour lancer le skill jeu de l'oie __Dites : Alexa commencer jeu__
+* Pour lancer la skill jeu de l'oie __Dites : Alexa commencer jeu__
+## Développement de la skill alexa
+##### 1 - Amazon developper console
+* Création de la skill
+* les mots d'invocation de la skil et de ses différentes phrases d'interactions avec alexa
+##### 2 - Amazon Web Service lambda
+* créer un AWS lambda
+* Dans la skill sur Amazon developer console se trouve un entrypoint dans lequel on lie le AWS lambda grace à son ID
+* Dévéloper le code et deposer sur Lambda sous forme de zip ou jar
+
 ## Gestion de l'Api
 * l'Api est disponible sur le lien http://35.205.140.234:8080/swagger-ui.html
 * Sur cette api deux contrôleurs sont disponibles 
@@ -47,6 +56,7 @@ goose game with alexa participation
      * créer un joueur
      * mettre à jour le joueur (*__Permet de modifier la position du joueur en cours de partie__*) 
      * suppprimer le joueur 
+     
      
 
 
