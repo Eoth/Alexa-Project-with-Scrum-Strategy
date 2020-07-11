@@ -49,7 +49,7 @@ goose game with alexa participation
 * Dévéloper le code et deposer sur Lambda sous forme de zip ou jar
 
 ## Gestion de l'Api
-* l'Api est disponible sur le lien http://35.205.140.234:8080/swagger-ui.html
+* l'Api est disponible sur le lien http://35.205.140.234:8080/swagger-ui.html (*__le serveur n'est plus disponible__*)
 * Sur cette api deux contrôleurs sont disponibles 
   > **Game_party_Controller qui permet :**
      * d'afficher la liste des joueurs
